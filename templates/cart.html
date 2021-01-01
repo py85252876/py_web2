@@ -1,0 +1,120 @@
+{% extends 'base.html'%}
+{% block mainpage %}
+    <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <!-- Start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex justify-content-between mb-30">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dotan</a></li>
+                                            <li class="breadcrumb-item active">Cart</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <!-- Start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-borderless table-centered mb-0">
+                                                        <thead class="thead-light">
+                                                            <tr>
+                                                                <th>Product</th>
+                                                                <th>Price</th>
+                                                                <th>Quantity</th>
+                                                                <th>Total</th>
+                                                                <th>Clear</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for item in list %}
+                                                            <tr>
+                                                                <td>
+                                                                    <img src="../static/img/{{ item.item_id }}.jpg" alt="contact-img" title="contact-img" class="round mr-3 product-thumb" />
+                                                                    <p class="m-0 d-inline-block align-middle font-16">
+                                                                        <a href="apps-ecommerce-products-details.html" class="text-body">{{ item.item_name }}</a>
+                                                                        <br>
+                                                                        <small class="mr-2"><b>Size:</b> {{ item.size }} </small>
+                                                                        <small><b>Color:</b> {{ item.color }} </small>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    ${{ item_list[item.item_id-1].price }}
+                                                                </td>
+                                                                <td>
+                                                                    <input type="number" min="1" value="{{ item.item_num }}" onchange="changesum(this,{{ item_list[item.item_id-1].price }},{{item.book_id}});" class="form-control" placeholder="Qty" style="width: 90px;">
+                                                                </td>
+                                                                <td>
+                                                                    ${{ item.item_num*item_list[item.item_id-1].price }}
+                                                                </td>
+                                                                <td>
+                                                                    <a href="javascript:void(0);" class="action-icon" id = "{{ item.book_id }}" datatype="delete"> <i class="zmdi zmdi-delete"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!-- end table-responsive-->
+
+                                                <!-- action buttons-->
+                                                <div class="row mt-4">
+                                                    <div class="col-sm-6">
+                                                        <a href="{{ url_for('show_item') }}" class="btn text-muted border d-none d-sm-inline-block btn-link font-weight-semibold">
+                                                            <i class="arrow_left"></i> Continue Shopping </a>
+                                                    </div> <!-- end col -->
+                                                    <div class="col-sm-6">
+                                                        <div class="text-sm-right">
+                                                            <a href="javascript:void(0);" id="checkout" class="btn btn-danger">
+                                                                <i class="mdi mdi-cart-plus mr-1"></i> Checkout </a>
+                                                        </div>
+                                                    </div> <!-- end col -->
+                                                </div> <!-- end row-->
+                                            </div>
+                                            <!-- end col -->
+
+                                        </div> <!-- end row -->
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                </div>
+
+                <!-- Footer Area -->
+                <div class="footer-area footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Footer Area -->
+                                <div class="d-sm-flex align-items-center justify-content-between">
+                                    <!-- Copywrite Text -->
+                                    <div class="copywrite-text">
+                                        <p>Dotan &copy; 2020 created by <a href="http://www.bootstrapmb.com/">Theme-zome</a></p>
+                                    </div>
+                                    <!-- Footer Nav -->
+                                    <ul class="footer-nav d-flex align-items-center justify-content-center">
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Privacy</a></li>
+                                        <li><a href="#">Purchase</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block some_js %}
+    <script src="../static/js/cart.js"></script>
+{% endblock %}

@@ -1,0 +1,273 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+    <div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- Product Edit area Start -->
+                    <div class="container-fluid">
+                        <!-- Start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex justify-content-between mb-30">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dotan</a></li>
+                                            <li class="breadcrumb-item active">Product Details</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <!-- Product image -->
+                                                <a href="javascript: void(0);" class="text-center d-block mb-4">
+                                                    <img src="../static/img/{{ list.id }}.jpg" class="img-fluid" alt="Product" id = "{{ list.id }}"/>
+                                                </a>
+
+                                                <div class="d-lg-flex d-none justify-content-center">
+                                                    <a href="javascript: void(0);" datatype="small-picture">
+                                                        {% if list.id + 1 > 8 %}
+                                                            <img src="../static/img/{{ list.id+1-8 }}.jpg" id="{{ list.id+11 }}" class="img-fluid img-thumbnail p-2" style="max-width: 80px;" alt="Product" />
+                                                        {% else %}
+                                                            <img src="../static/img/{{ list.id + 1 }}.jpg" id="{{ list.id+19 }}" class="img-fluid img-thumbnail p-2" style="max-width: 80px;" alt="Product" />
+                                                        {% endif %}
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="ml-2" datatype="small-picture">
+                                                        {% if list.id + 2 > 8 %}
+                                                            <img src="../static/img/{{ list.id+2-8 }}.jpg" id="{{ list.id+12 }}" class="img-fluid img-thumbnail p-2" style="max-width: 80px;" alt="Product" />
+                                                        {% else %}
+                                                            <img src="../static/img/{{ list.id + 2 }}.jpg" id="{{ list.id+20 }}" class="img-fluid img-thumbnail p-2" style="max-width: 80px;" alt="Product" />
+                                                        {% endif %}
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="ml-2" datatype="small-picture">
+                                                        {% if list.id + 3 > 8 %}
+                                                            <img src="../static/img/{{ list.id+3-8 }}.jpg" id="{{ list.id+13 }}" class="img-fluid img-thumbnail p-2" style="max-width: 80px;" alt="Product" />
+                                                        {% else %}
+                                                            <img src="../static/img/{{ list.id + 3 }}.jpg" id="{{ list.id+21 }}" class="img-fluid img-thumbnail p-2" style="max-width: 80px;" alt="Product" />
+                                                        {% endif %}
+                                                    </a>
+                                                </div>
+                                            </div> <!-- end col -->
+                                            <div class="col-lg-6">
+                                                <form class="pl-lg-4">
+                                                    <!-- Product title -->
+                                                    <h3 class="mt-0 font-24">{{ list.name }}</h3>
+                                                    <p class="mb-1 font-16">Added Date: 12/12/2020</p>
+
+
+                                                    <!-- Product description -->
+                                                    <div class="mt-4">
+                                                        <h6 class="font-14">Price:</h6>
+                                                        <h3> ${{ list.price }}</h3>
+                                                    </div>
+
+                                                    <!-- Quantity -->
+                                                    <div class="mt-4">
+                                                        <h6 class="font-14">Quantity</h6>
+                                                        <div class="row">
+                                                            {% if list.id == 1 %}
+                                                                <div class="col-sm-4">
+                                                                <div class="form-group">
+                                                                    <label for="size">Men's size</label>
+                                                                    <select class="form-control" id="size">
+                                                                        <option>Chooze size</option>
+                                                                        <option>11.5</option>
+                                                                        <option>11</option>
+                                                                        <option>10.5</option>
+                                                                        <option>10</option>
+                                                                        <option>9.5</option>
+                                                                        <option>9</option>
+                                                                        <option>8.5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            {% endif %}
+                                                            <div class="col-sm-5">
+                                                                <div class="form-group">
+                                                                    <label for="color">Choose color</label>
+                                                                    <select class="form-control" id="color">
+                                                                        <option>White</option>
+                                                                        <option>Blue</option>
+                                                                        <option>Red</option>
+                                                                        <option>Blue</option>
+                                                                        <option>Black</option>
+                                                                        <option>Orange</option>
+                                                                        <option>Green</option>
+                                                                        <option>Gray</option>
+                                                                        <option>Purple</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group">
+                                                                    <label for="quantity">Quantity</label>
+                                                                    <select class="form-control" id="quantity">
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                        <option>3</option>
+                                                                        <option>4</option>
+                                                                        <option>5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Product description -->
+                                                    <div class="mt-4">
+                                                        <h6 class="font-14">Description:</h6>
+                                                        <p>{{ list.content }}</p>
+                                                    </div>
+
+                                                    <!-- Product information -->
+                                                    <div class="mt-4">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <h6 class="font-14">Do you like it?</h6>
+{#                                                                <p class="font-16 text-dark lh-150">1256</p>#}
+                                                                <a href="javascript: void(0);" class="btn btn-primary btn-block add_cart"> add to chart </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div> <!-- end col -->
+                                        </div> <!-- end row-->
+
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="chat">
+                                            <div class="d-flex justify-content-between border-bottom">
+                                                <div class="chat-header-text d-flex border-none">
+                                                    <div class="chat-about">
+                                                        <div class="chat-with">Some Comments</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="chat-history" id="chat-conversation">
+                                                <ul>
+                                                    {% for comment in comments %}
+                                                    {% if comment.username == username %}
+                                                    <li class="clearfix">
+                                                        <div class="message-data text-right">
+                                                            <span class="message-data-time">{{ comment.time }}</span>
+                                                            <span class="message-data-name pl-2">{{ comment.username }}</span>
+                                                        </div>
+                                                        <div class="message other-message float-right">{{ comment.content }} </div>
+                                                    </li>
+                                                        {% else %}
+                                                    <li>
+                                                        <div class="message-data">
+                                                            <span class="message-data-name">{{ comment.username }}</span>
+                                                            <span class="message-data-time">{{ comment.time }}</span>
+                                                        </div>
+                                                        <div class="message my-message">{{ comment.content }}</div>
+                                                    </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                            <div class="chat-message clearfix">
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input type="text" class="form-control" id="new_comment" placeholder="Enter text here.." />
+                                                    </div>
+                                                </div>
+                                                <div class="chat-upload">
+                                                    <p id="current"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 mt-50">
+                                <h6 class="font-20 mb-30">Related Product</h6>
+                            </div>
+                        {% if list.id > 4 %}
+                            {% for i in range(4) %}
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="single-product-item mb-30">
+                                        <div class="product-card">
+                                            <a class="product-thumb" id = "{{ i+8 }}" datatype="picture" href="javascript: void(0);"><img src="../static/img/{{ i+1 }}.jpg" alt="Product"></a>
+                                            <h3 class="product font-13 mb-0">{{ all[i].category }}</h3>
+                                            <h3 class="product-title"><a href="product-details.html">Product</a></h3>
+                                            <p>{{ all[i].content }}</p>
+                                            <h4 class="product-price">${{ all[i].price }}</h4>
+                                            <div class="product-buttons">
+                                                <a class="btn btn-primary mt-20" datatype="add_cart" href="javascript: void(0);">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in range(4,8) %}
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="single-product-item mb-30">
+                                        <div class="product-card">
+                                            <a class="product-thumb" datatype="picture" href="javascript: void(0);" id = "{{ i+8 }}"><img src="../static/img/{{ i+1 }}.jpg" alt="Product"></a>
+                                            <h3 class="product font-13 mb-0">{{ all[i].category }}</h3>
+                                            <h3 class="product-title"><a href="product-details.html">Product</a></h3>
+                                            <p>{{ all[i].content }}</p>
+                                            <h4 class="product-price">${{ all[i].price }}</h4>
+                                            <div class="product-buttons">
+                                                <a class="btn btn-primary mt-20" datatype="add_cart" href="javascript: void(0);">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Area -->
+                <div class="footer-area footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Footer Area -->
+                                <div class="d-sm-flex align-items-center justify-content-between">
+                                    <!-- Copywrite Text -->
+                                    <div class="copywrite-text">
+                                        <p>Dotan &copy; 2020 created by <a href="http://www.bootstrapmb.com/">Theme-zome</a></p>
+                                    </div>
+                                    <!-- Footer Nav -->
+                                    <ul class="footer-nav d-flex align-items-center justify-content-center">
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Privacy</a></li>
+                                        <li><a href="#">Purchase</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block some_js %}
+    <script src="../static/js/default-assets/demo.product.js"></script>
+    <script src="../static/js/default-assets/jquery.datatables.min.js"></script>
+    <script src="../static/js/chat_box.js"></script>
+    <script src="../static/js/show_item_details.js"></script>
+{% endblock %}

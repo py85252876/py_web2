@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block searcharea %}
+    <ul class="navbar-nav mr-lg-2">
+        <li class="nav-item app-search d-none d-sm-block">
+            <form role="search" class=""><input type="text" placeholder="Search..." class="form-control">
+                <a class="search-btn mr-0" href="javascript:void(0);" id="search_button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search search-icon">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg></a></form>
+        </li>
+    </ul>
+{% endblock %}
+{% block mainpage %}
+    <div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- Product Edit area Start -->
+                    <div class="container-fluid">
+                        <!-- Start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex justify-content-between mb-30">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dotan</a></li>
+                                            <li class="breadcrumb-item active">Product</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row" id="contain_row">
+                            {% for item in list %}
+                            <div class="col-md-6 col-lg-4 col-xl-3">
+                                <div class="single-product-item mb-30">
+                                    <div class="product-card">
+                                        <a class="product-thumb" datatype="picture" id = "{{ item.id }}"><img src="../static/img/{{ item.id }}.jpg" alt="Product"></a>
+                                        <h3 class="product font-13 mb-0">{{ item.category }}</h3>
+                                        <h3 class="product-title"><a href="product-details.html">{{ item.name }}</a></h3>
+                                        <p>{{ item.content }}</p>
+                                        <h4 class="product-price">${{ item.price }}</h4>
+                                        <div class="product-buttons">
+                                            <a class="btn btn-primary mt-20" href="javascript: void(0);" datatype="add_cart">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <!-- end row -->
+                    </div>
+                </div>
+
+                <!-- Footer Area -->
+                <div class="footer-area footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Footer Area -->
+                                <div class="d-sm-flex align-items-center justify-content-between">
+                                    <!-- Copywrite Text -->
+                                    <div class="copywrite-text">
+                                        <p>Dotan &copy; 2020 created by <a href="http://www.bootstrapmb.com/">Theme-zome</a></p>
+                                    </div>
+                                    <!-- Footer Nav -->
+                                    <ul class="footer-nav d-flex align-items-center justify-content-center">
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Privacy</a></li>
+                                        <li><a href="#">Purchase</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block some_js %}
+<script src="../static/js/show-item.js"></script>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+    <div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        <!-- Start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex justify-content-between mb-30">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dotan</a></li>
+                                            <li class="breadcrumb-item active">Profile</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Profile -->
+                                <div class="card">
+                                    <div class="card-body profile-user-box">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="media">
+                                                    <span class="float-left m-2 mr-4"><img src="{{ user.p_address }}" style="height: 100px;" alt="" class="rounded-circle img-thumbnail" id="img_per"></span>
+                                                    <div class="media-body">
+
+                                                        <h6 class="mt-1 mb-1">{{ user.username }}</h6>
+                                                        <div class="wrap">
+                                                            <p class="font-13" id="info">{{ user.info }}</p>
+                                                        </div>
+
+
+                                                        <ul class="mb-0 list-inline text-light">
+                                                            <li class="list-inline-item mr-3">
+                                                                <p class="mb-0 font-13">Account balance:</p>
+                                                                <h6 class="mb-1">${{ user.balance}}</h6>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="mb-0 font-13">Number of Orders</p>
+                                                                <h6 class="mb-1">{{ num }}</h6>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="mb-0 font-13">The amount of money already spent</p>
+                                                                <h6 class="mb-1">${{ price }}</h6>
+                                                            </li>
+                                                        </ul>
+                                                    </div> <!-- end media-body-->
+                                                </div>
+                                            </div> <!-- end col-->
+
+                                            <div class="col-sm-4">
+                                                <div class="text-center mt-sm-0 mt-3 text-sm-right">
+                                                    <form enctype='multipart/form-data' method='POST' id="new_pic">
+                                                        <a id="pic" class="btn btn-light">
+                                                            change picture
+                                                        </a>
+                                                    </form>
+                                                </div>
+                                            </div> <!-- end col-->
+                                        </div> <!-- end row -->
+
+                                    </div> <!-- end card-body/ profile-user-box-->
+                                </div>
+                                <!--end profile/ card -->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- container -->
+                </div>
+
+                <!-- Footer Area -->
+                <div class="footer-area footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Footer Area -->
+                                <div class="d-sm-flex align-items-center justify-content-between">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block some_js %}
+<script src="../static/js/profile.js"></script>
+{% endblock %}

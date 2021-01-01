@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block mainpage %}
+<div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- Product Edit area Start -->
+                    <div class="container-fluid">
+                        <!-- Start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex justify-content-between mb-30">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dotan</a></li>
+                                            <li class="breadcrumb-item active">Order</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-12">
+                                            </div>
+                                        </div>
+
+                                        <div class="table-responsive">
+                                            <table class="table table-centered mb-0">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>Order ID</th>
+                                                        <th data-hide="phone">Customer</th>
+                                                        <th data-hide="phone">Date added</th>
+                                                        <th data-hide="phone,tablet">Payment</th>
+                                                        <th data-hide="phone">Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for item in buying %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ item.buy_id }}
+                                                        </td>
+                                                        <td>
+                                                            {{ item.username }}
+                                                        </td>
+                                                        <td>
+                                                            {{ item.time }}
+                                                        </td>
+                                                        <td>
+                                                            {{ item.payment }}
+                                                        </td>
+                                                        <td>
+                                                            ${{ item.total }}
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                </div>
+
+                <!-- Footer Area -->
+                <div class="footer-area footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Footer Area -->
+                                <div class="d-sm-flex align-items-center justify-content-between">
+                                    <!-- Copywrite Text -->
+                                    <div class="copywrite-text">
+                                        <p>Dotan &copy; 2020 created by <a href="http://www.bootstrapmb.com/">Theme-zome</a></p>
+                                    </div>
+                                    <!-- Footer Nav -->
+                                    <ul class="footer-nav d-flex align-items-center justify-content-center">
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Privacy</a></li>
+                                        <li><a href="#">Purchase</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
